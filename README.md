@@ -1,2 +1,2 @@
-# web_ventas_java
-Proyecto en parejas para realizar una API REST con los metodos: insertar(); y obtenerTodos();
+# WebVentas
+Practica curso Java API REST Java JS
