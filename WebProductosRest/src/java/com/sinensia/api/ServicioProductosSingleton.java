@@ -27,8 +27,8 @@ public class ServicioProductosSingleton {
     return p;
     }
     
-    public Producto[] obtenerTodos(){
-    return (Producto[]) listaProductos.toArray();
+    public ArrayList<Producto> obtenerTodos(){
+    return listaProductos;
     }
     
     private final static ServicioProductosSingleton instancia=new ServicioProductosSingleton();
