@@ -9,7 +9,7 @@ import { ServicioProductosService } from 'src/app/services/servicio-productos.se
 export class ListadoProductosComponent implements OnInit {
 
   result: any;
-  productos = [];
+ 
 
   constructor(public service: ServicioProductosService) { }
 
@@ -21,7 +21,7 @@ export class ListadoProductosComponent implements OnInit {
 
   processResult(data: any) {
     this.result = data;
-    this.productos = this.result;
+    return this.result;
   }
 
   }

@@ -108,6 +108,7 @@ public class ProductoRestController extends HttpServlet {
             listaj.add(json);
         }
         //Una vez finalizado el bucle enviamos el json por el stream de respuesta
+        setAccessControlHeaders(response);
         escritorRespuesta.println(listaj);
         
         
@@ -138,6 +139,18 @@ public class ProductoRestController extends HttpServlet {
         Producto deleteP = gson.fromJson(rJson.toString(), Producto.class);
         servProd.eliminar(deleteP.getNombre());
     }
+    
+    @Override
+  protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
+          throws ServletException, IOException {
+      setAccessControlHeaders(resp);
+      resp.setStatus(HttpServletResponse.SC_OK);
+  }
+
+  private void setAccessControlHeaders(HttpServletResponse resp) {
+      resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+      resp.setHeader("Access-Control-Allow-Methods", "GET");
+  }
     }
     
 
