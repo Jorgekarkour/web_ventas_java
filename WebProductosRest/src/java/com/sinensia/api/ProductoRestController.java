@@ -117,6 +117,27 @@ public class ProductoRestController extends HttpServlet {
         
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        BufferedReader bufRead = request.getReader();
+        StringBuilder rJson = new StringBuilder();
+        for (String linea = bufRead.readLine(); linea != null; linea = bufRead.readLine()){
+        rJson.append(linea);
+        }
+        bufRead.close();
+        Gson gson = new Gson();
+        Producto deleteP = gson.fromJson(rJson.toString(), Producto.class);
+        servProd.eliminar(deleteP.getNombre());
+    }
     }
     
 
